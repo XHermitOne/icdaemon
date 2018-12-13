@@ -1,0 +1,31 @@
+# !/bin/sh
+# /etc/init.d/icdaemon
+
+### BEGIN INIT INFO
+# Provides:          icdaemon
+# Required-Start:    $network
+# Required-Stop:     $network
+# Default-Start:     2
+# Default-Stop:      0 6
+# Description:       Start icservices daemon
+### END INIT INFO
+
+case "$1" in
+        start)
+                /usr/bin/python /home/user/programms/icservices/icdaemon/icdaemon.py start
+        ;;
+
+        stop)
+                /usr/bin/python /home/user/programms/icservices/icdaemon/icdaemon.py stop
+        ;;
+
+        restart)
+               /usr/bin/python /home/user/programms/icservices/icdaemon/icdaemon.py restart
+        ;;
+
+        *)
+                echo "Usage: $0 start | stop | restart " >&2
+                exit 1
+        ;;
+esac
+exit 0
